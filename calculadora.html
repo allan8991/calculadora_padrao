@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora</title>
+        <style>
+            
+           
+            *{
+                margin:0px;
+                padding: 0px;
+                box-sizing:border-box;
+            }
+               
+          
+            .container{
+                display:flex;
+                height:900px;
+                width: 100%;
+                flex-direction: column;
+               
+               
+                
+            }
+            h1{
+                background-color: grey;
+                height: 10%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               
+               
+
+            }
+            section{
+                margin-top:2%;
+                height: 50%;
+                width:60%;
+                align-self:center;
+                border:solid 11px black;
+                background-color: black;
+                border-radius:10px;
+
+            }
+            div{
+                display: flex;
+                flex-wrap: nowrap;
+                border: black 1px solid;
+                height: 20%;
+            }
+            button,input{
+                height: 100%;
+                color: black;
+                width:100%;
+                font-weight: 900;
+                font-size:28px;
+               
+            }
+            input{
+                text-indent: 3%;
+                width:76.7%;
+                background-color: white;
+                margin:0.5%;
+                
+            }
+            button{
+                margin:0.5%;
+                width:24.8%;
+            }
+            @media(max-width:900px){
+                section{
+                height: 45%;
+                width:98%;
+               
+
+            }
+                input{
+                    font-size:16.5px;
+                
+                
+            }
+            }
+            
+           
+            
+           
+           
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Caculadora Padrão</h1>
+            <section>
+                
+                    <div>
+                        <input type="text" maxlength="15" disabled="disabled" name="visor" id="visor" placeholder="0">
+                        <button id="/" >/</button>
+                        
+                    </div>
+                    <div>
+                        <button id="7" >7</button>
+                        <button id="8">8</button>
+                        <button id="9">9</button>
+                        <button id="x">x</button>
+                    </div>
+                    <div>
+                        <button id="4">4</button>
+                        <button id="5">5</button>
+                        <button id="6">6</button>
+                        <button id="-">-</button>
+                    </div>
+                    <div>
+                        <button id="1">1</button>
+                        <button id="2">2</button>
+                        <button id="3">3</button>
+                        <button id="+">+</button>
+                    </div>
+                    <div>
+                        <button id="0">0</button>
+                        <button id="CE">CE</button>
+                        <button id=",">,</button>
+                        <button id="=">=</button>
+                    </div>
+                    
+               
+            </section>
+           
+
+        </div>
+        <script>
+             var visualizar ="";
+             document.getElementById('7').addEventListener("click",(e)=>{
+                 visualizar+="7";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('8').addEventListener("click",(e)=>{
+                 visualizar+="8";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('9').addEventListener("click",(e)=>{
+                 visualizar+="9";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('x').addEventListener("click",(e)=>{
+                 visualizar+=" x ";
+                document.getElementById("visor").value=visualizar;
+             })
+             
+             document.getElementById('4').addEventListener("click",(e)=>{
+                 visualizar+="4";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('5').addEventListener("click",(e)=>{
+                 visualizar+="5";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('6').addEventListener("click",(e)=>{
+                 visualizar+="6";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('-').addEventListener("click",(e)=>{
+                 visualizar+=" - ";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('1').addEventListener("click",(e)=>{
+                 visualizar+="1";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('2').addEventListener("click",(e)=>{
+                 visualizar+="2";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('3').addEventListener("click",(e)=>{
+                 visualizar+="3";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('+').addEventListener("click",(e)=>{
+                 visualizar+=" + ";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById('0').addEventListener("click",(e)=>{
+                 visualizar+="0";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.querySelector('#CE').addEventListener("click",(e)=>{
+                 visualizar=" ";
+                document.getElementById("visor").value="0";
+             })
+             
+             document.getElementById('/').addEventListener("click",(e)=>{
+                 visualizar+=" / ";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById(',').addEventListener("click",(e)=>{
+                 visualizar+=",";
+                document.getElementById("visor").value=visualizar;
+             })
+             document.getElementById("=").addEventListener("click",(e)=>{
+                try{
+                    if(visualizar!==""){
+                    visualizar = visualizar.replace(/x/gi,"*");    
+                    visualizar = visualizar.replace(/\,/gi,".");            
+                    visualizar= eval(visualizar).toString();
+                    visualizar = visualizar.replace(/\./gi,","); 
+                    document.getElementById("visor").value=visualizar;
+                    }
+                   
+
+                }catch(e){
+                    document.getElementById("visor").value='ERROR';
+                    visualizar="";
+                    
+                }
+                
+                
+             })
+             
+            
+        </script>
+    </body>
+
+</html>
